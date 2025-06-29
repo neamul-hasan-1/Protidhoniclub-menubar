@@ -1,0 +1,2025 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>প্রতিধ্বনি ক্লাব - মানবতার সেবায় নিবেদিত</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c5f2d;
+            --secondary: #97bc62;
+            --accent: #f1c40f;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --text: #333333;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--text);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--gradient);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        
+        .header-hidden {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 15px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .logo {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        .logo i {
+            font-size: 50px;
+            color: var(--primary);
+        }
+        
+        .club-name {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .club-address {
+            font-size: 16px;
+            color: white;
+            margin-top: 8px;
+            opacity: 0.9;
+        }
+        /* ==== Hamburger Menu Full Design ==== */
+.menu-icon {
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1100;
+  transition: transform 0.3s ease;
+}
+
+.menu-icon:hover {
+  transform: scale(1.1);
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  width: 260px;
+  height: 100%;
+  background: linear-gradient(145deg, #111827, #1f2937);
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.6);
+  padding-top: 80px;
+  transition: transform 0.4s ease-in-out;
+  z-index: 1050;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.side-menu.show {
+  transform: translateX(0%);
+}
+
+.side-menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 20px;
+  padding: 14px 20px;
+  color: #ffffff;
+  background-color: #2563eb;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  text-align: center;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.side-menu a:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px) scale(1.03);
+}
+
+.side-menu a i {
+  font-size: 18px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.2) rotate(90deg);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: none;
+  transition: all 0.3s ease;
+}
+
+.overlay.show {
+  display: block;
+}
+        /* Notice Section */
+        .notice-section {
+            background-color: var(--accent);
+            padding: 12px 0;
+            overflow: hidden;
+            margin: 10px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .notice-container {
+            display: flex;
+            white-space: nowrap;
+            animation: marquee 20s linear infinite;
+        }
+        
+        .notice-title {
+            background-color: var(--dark);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 0 4px 4px 0;
+            font-weight: 600;
+            margin-right: 15px;
+        }
+        
+        .notice-text {
+            font-weight: 500;
+            padding-right: 20px;
+        }
+        
+        /* About Section */
+        .about-section {
+            background: white;
+            padding: 30px 15px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about-content p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        
+        .about-highlight {
+            background: linear-gradient(to right, rgba(44, 95, 45, 0.1), rgba(151, 188, 98, 0.1));
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .about-list {
+            padding-left: 20px;
+            margin: 15px 0;
+        }
+        
+        .about-list li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .about-list li::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        /* Image Slider */
+        .slider-container {
+            margin: 25px auto;
+            max-width: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            height: 250px;
+        }
+        
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+        
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .slider-nav {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.5);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .slider-dot.active {
+            background-color: white;
+        }
+        
+        /* Leadership Section */
+        .section-title {
+            text-align: center;
+            margin: 30px 0 20px;
+            color: var(--primary);
+            font-size: 24px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 3px;
+        }
+        
+        .leaders-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 0 15px;
+        }
+        
+        .leader-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            max-width: 350px;
+            width: 100%;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        
+        .leader-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .leader-image {
+            width: 100%;
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .leader-info {
+            padding: 20px;
+        }
+        
+        .leader-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .leader-position {
+            font-size: 16px;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .leader-bio {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .social-link {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            width: 36px;
+            height: 36px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background: #1877F2;
+            transform: scale(1.1);
+        }
+        
+        /* Members Section */
+        .members-section {
+            background: linear-gradient(to bottom, #eef5ee, #ffffff);
+            padding: 30px 0;
+            margin-top: 30px;
+        }
+        
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 0 15px;
+        }
+        
+        .member-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+        }
+        
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        
+        .member-image {
+            width: 100%;
+            height: 120px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .member-info {
+            padding: 15px 10px 40px;
+        }
+        
+        .member-name {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+        
+        .member-bio {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .member-position {
+            font-weight: 500;
+            color: var(--primary);
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .member-social {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .member-social:hover {
+            background: #1877F2;
+            transform: translateX(-50%) scale(1.1);
+        }
+        
+        /* Products Section */
+        .products-section {
+            background: white;
+            padding: 40px 15px;
+            margin: 30px 0;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            border: 1px solid #eaeaea;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background-color: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .product-price {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .product-button {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        
+        .product-button:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* Location Section */
+        .location-section {
+            padding: 30px 15px;
+            background-color: white;
+        }
+        
+        .location-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .map-container {
+            width: 100%;
+            height: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        .address-details {
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.8;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .address-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .address-item {
+            margin: 5px 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .address-item i {
+            margin-right: 8px;
+            color: var(--primary);
+            font-size: 18px;
+        }
+        
+        /* Social Media Section */
+        .social-section {
+            background: var(--gradient);
+            padding: 50px 15px;
+            text-align: center;
+            border-radius: 15px;
+            margin: 30px 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .social-section::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .social-title {
+            color: white;
+            font-size: 28px;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .social-subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .social-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .social-button:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+        
+        /* Developer Section */
+        .developer-section {
+            padding: 60px 15px;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .developer-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.1;
+        }
+        
+        .developer-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.9);
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        .developer-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .developer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .developer-name {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 10px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .developer-text {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .developer-quote {
+            font-style: italic;
+            color: var(--primary);
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid var(--accent);
+            background: rgba(241, 196, 15, 0.1);
+            border-radius: 0 8px 8px 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hire-button-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .hire-button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: 2px solid var(--primary);
+        }
+        
+        .hire-button:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 15px 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        .footer-logo {
+            font-size: 32px;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        .club-motto {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .copyright {
+            font-size: 15px;
+            margin: 30px 0 10px;
+            opacity: 0.8;
+        }
+        
+        .developer {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .developer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+        
+        .scroll-top.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .scroll-top:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            position: relative;
+            text-align: center;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #777;
+        }
+        
+        .modal-title {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .modal-text {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .modal-button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+        
+        .modal-button:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        /* Animations */
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Lazy Loading Styles */
+        .lazy {
+            background: linear-gradient(90deg, #f0f0f0, #e0e0e0, #f0f0f0);
+            background-size: 200% 200%;
+            animation: loading 1.5s infinite;
+            border-radius: 4px;
+        }
+        
+        @keyframes loading {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .members-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .leaders-container {
+                flex-wrap: wrap;
+            }
+            
+            .leader-card {
+                min-width: 300px;
+                max-width: 380px;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .developer-card {
+                padding: 50px;
+            }
+            
+            .address-details {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .address-row {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .members-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .address-details {
+                flex-direction: row;
+                justify-content: space-around;
+                max-width: 800px;
+            }
+            
+            .address-row {
+                justify-content: space-around;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header id="mainHeader">
+        <div class="logo-container">
+            <div class="logo">
+                <i class="fas fa-hands-helping"></i>
+            </div>
+            <h1 class="club-name">প্রতিধ্বনি ক্লাব</h1>
+            <p class="club-address">ঘেচুয়া, বড়চালা, সখিপুর, টাঙ্গাইল</p>
+        </div>
+    </header>
+  
+    <!-- Hamburger Icon -->
+    <span class="menu-icon" onclick="toggleMenu()">☰</span>
+  </div>
+</header>
+
+<!-- Side Menu -->
+<div id="menu" class="side-menu">
+  <span class="close-btn" onclick="toggleMenu()">✖️</span>
+  <a href="https://your-donation-form-link.com" target="_blank">
+    <i class="fas fa-donate"></i> ডোনেট করুন
+  </a>
+  <a href="https://your-membership-form-link.com" target="_blank">
+    <i class="fas fa-user-plus"></i> সদস্য আবেদন করুন
+  </a>
+</div>
+
+<!-- Overlay -->
+<div id="overlay" class="overlay" onclick="toggleMenu()"></div>
+    <!-- Notice Section -->
+    <div class="notice-section">
+        <div class="notice-container">
+            <div class="notice-title">জরুরী নোটিশ:</div>
+            <div class="notice-text">আগামী ২৭ জুন, শুক্রবার রাত ৯টায় ক্লাবের সাপ্তাহিক মিটিং অনুষ্ঠিত হবে।</div>
+        </div>
+    </div>
+  
+    <!-- Image Slider -->
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <img data-src="images/Slide1.webp" alt="ক্লাব কার্যক্রম" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="slide">
+                <img data-src="images/Slide4.webp" alt="সামাজিক সেবা" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="slide">
+                <img data-src="images/slide.webp" alt="শিক্ষা সহায়তা" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="slide">
+                <img data-src="images/Image-s2.webp" alt="স্বাস্থ্য ক্যাম্প" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+        </div>
+        <div class="slider-nav">
+            <div class="slider-dot active"></div>
+            <div class="slider-dot"></div>
+            <div class="slider-dot"></div>
+            <div class="slider-dot"></div>
+        </div>
+    </div>
+    
+    <!-- About Section -->
+    <div class="about-section fade-in">
+        <h2 class="section-title">ক্লাব সম্পর্কে</h2>
+        <div class="about-content">
+            <p>প্রতিধ্বনি ক্লাব একটি অরাজনৈতিক ও সম্পূর্ণ অলাভজনক সামাজিক সংগঠন। ২০০০ সাল থেকে আমরা মানবসেবায় নিবেদিত। আমাদের মূল লক্ষ্য সমাজের সুবিধাবঞ্চিত মানুষের সেবা করা এবং তাদের জীবনযাত্রার মান উন্নয়নে সাহায্য করা।</p>
+            
+            <div class="about-highlight">
+                <p>"মানুষ মানুষের জন্য, জীবন জীবনের জন্য" - এই আদর্শকে ধারণ করে আমরা কাজ করে যাচ্ছি প্রতিটি দিন।</p>
+            </div>
+            
+            <p>আমাদের কার্যক্রমের মধ্যে রয়েছে:</p>
+            <ul class="about-list">
+                <li>অসহায় ও দরিদ্রদের সহায়তা করা</li>
+                <li>ঈদের সময় দরিদ্রদের মাঝে ঈদ সামগ্রী বিতরণ করা</li>
+                <li>এলাকার যুবসমাজদেরকে মাদক থেকে দূরে রাখতে বিভিন্ন ধরণের খেলাধুলার আয়োজন করা</li>
+                <li>সামাজিক বিভিন্ন ধরনের কাজে শারীরিক বা মানসিক শ্রম দিয়ে সহায়তা করা</li>
+            </ul>
+           
+            <p>আমাদের সকল কার্যক্রম সদস্যদের স্বেচ্ছাশ্রম ও দানের অর্থে পরিচালিত হয়। আমরা বিশ্বাস করি যে ছোট ছোট প্রচেষ্টাই একদিন বড় পরিবর্তন আনতে পারে।</p>
+        </div>
+    </div>
+    
+    <!-- Founder Section -->
+    <h2 class="section-title">প্রতিষ্ঠাতা</h2>
+    <div class="leaders-container">
+        <div class="leader-card fade-in">
+            <div class="leader-image">
+                <img data-src="images/Rasel.webp" alt="রাসেল আহমেদ" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="leader-info">
+                <h3 class="leader-name">রাসেল আহমেদ</h3>
+                <div class="leader-position">প্রতিষ্ঠাতা</div>
+                <p class="leader-bio">২০০০ সালে আমাদের ক্লাব প্রতিষ্ঠা করেন রাসেল আহমেদ সহ এলাকার কিছু তরুণরা। শিক্ষা ও সমাজসেবায় তাঁর অবদান অবিস্মরণীয়। তাঁর দূরদর্শী নেতৃত্বে ক্লাব আজ এলাকার অন্যতম প্রধান সেবামূলক সংগঠন হিসেবে প্রতিষ্ঠিত।</p>
+            </div>
+            <a href="https://www.facebook.com/md.rasel.13260" class="social-link">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+    </div>
+    
+    <!-- President Section -->
+    <h2 class="section-title">সভাপতি</h2>
+    <div class="leaders-container">
+        <div class="leader-card fade-in">
+            <div class="leader-image">
+                <img data-src="images/Aminul.webp" alt="আমিনুল ইসলাম" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="leader-info">
+                <h3 class="leader-name">আমিনুল ইসলাম</h3>
+                <div class="leader-position">বর্তমান সভাপতি</div>
+                <p class="leader-bio">২০২৩ সাল থেকে ক্লাবের সভাপতির দায়িত্ব পালন করছেন আমিনুল ইসলাম। তাঁর দক্ষ নেতৃত্বে ক্লাবের কার্যক্রম ব্যাপকভাবে সম্প্রসারিত হয়েছে। সমাজ উন্নয়ন ও যুব সমাজের কল্যাণে তাঁর অবদান অনেক। তিনি একজন সফল ব্যবসায়ী ও সমাজসেবী।</p>
+            </div>
+            <a href="https://www.facebook.com/aminul.islam.881137" class="social-link">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Secretary Section -->
+    <h2 class="section-title">সাধারণ সম্পাদক</h2>
+    <div class="leaders-container">
+        <div class="leader-card fade-in">
+            <div class="leader-image">
+                <img data-src="images/Minhaz.webp" alt="মিনহাজ আহমেদ" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="leader-info">
+                <h3 class="leader-name">মিনহাজ আহমেদ</h3>
+                <div class="leader-position">সাধারণ সম্পাদক</div>
+                <p class="leader-bio">ক্লাবের সাধারণ সম্পাদক মিনহাজ আহমেদ একজন দক্ষ সংগঠক ও সমাজকর্মী। তাঁর পরিকল্পনা ও কর্মদক্ষতায় ক্লাবের বিভিন্ন সামাজিক কর্মসূচি সফলভাবে বাস্তবায়িত হচ্ছে।বর্তমানে তিনি একজন সিঙ্গাপুর প্রবাসী।</p>
+            </div>
+            <a href="https://www.facebook.com/menhas.bd" class="social-link">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Vice President Section -->
+    <h2 class="section-title">সহ-সভাপতি</h2>
+    <div class="leaders-container">
+        <div class="leader-card fade-in">
+            <div class="leader-image">
+                <img data-src="images/Sohel.webp" alt="সোহেল সিদ্দীকি" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="leader-info">
+                <h3 class="leader-name">সোহেল সিদ্দীকি</h3>
+                <div class="leader-position">সহ-সভাপতি</div>
+                <p class="leader-bio">ক্লাবের সহ-সভাপতি সোহেল সিদ্দীকি একজন দক্ষ প্রশাসক ও সমাজসেবী। তাঁর নেতৃত্বে ক্লাবের বিভিন্ন সামাজিক কর্মসূচি সফলভাবে বাস্তবায়িত হয়েছে।</p>
+            </div>
+            <a href="https://www.facebook.com/sohel.siddique.1990" class="social-link">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Treasurer Section -->
+    <h2 class="section-title">কোষাধ্যক্ষ</h2>
+    <div class="leaders-container">
+        <div class="leader-card fade-in">
+            <div class="leader-image">
+                <img data-src="images/Khairul.webp" alt="খায়রুল ইসলাম" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="leader-info">
+                <h3 class="leader-name">খায়রুল ইসলাম</h3>
+                <div class="leader-position">কোষাধ্যক্ষ</div>
+                <p class="leader-bio">ক্লাবের কোষাধ্যক্ষ খায়রুল ইসলাম একজন দক্ষ অর্থ ব্যবস্থাপক। তাঁর দক্ষতায় ক্লাবের আর্থিক ব্যবস্থাপনা স্বচ্ছ ও জবাবদিহিতামূলক হয়েছে। সমাজসেবায় তাঁর আন্তরিকতা প্রশংসনীয়।এবং পুরো সংগঠনকে তিনিই ধরে রেখেছেন</p>
+            </div>
+            <a href="https://www.facebook.com/abol.khaher" class="social-link">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+    </div>
+<h2 class="section-title">ভারপ্রাপ্ত সভাপতি</h2>
+    <div class="leaders-container">
+        <div class="leader-card fade-in">
+            <div class="leader-image">
+                <img data-src="images/Ashraful.webp" alt="আশরাফুল ইসলাম" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="leader-info">
+                <h3 class="leader-name">আশরাফুল ইসলাম</h3>
+                <div class="leader-position">ভারপ্রাপ্ত সভাপতি</div>
+                <p class="leader-bio">নেতৃত্ব দিতে যে বয়স লাগেনা তা প্রতিধ্বনি ক্লাবের ভারপ্রাপ্ত সভাপতি আশরাফুল ইসলামকে দেখেই বুঝা যায়। এত কম বয়সেই তিনি সভাপতির অবর্তমানে দুদান্ত নেতৃত্ব দিয়ে থাকেন।তার অসাধারণ নেতৃত্বে ক্লাব আরো সামনের দিকে অগ্রসর হবে। </p>
+            </div>
+            <a href="https://www.facebook.com/ashraful234" class="social-link">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+    </div>
+
+    
+    <!-- Members Section -->
+    <div class="members-section">
+        <h2 class="section-title">আমাদের আরো নেতৃবৃন্দ</h2>
+        <div class="members-grid">
+            <!-- Member 1 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Razzak.webp" alt="আব্দুর রাজ্জাক" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">আব্দুর রাজ্জাক</div>
+                    <div class="member-position">পদবী: সহ সভাপতি</div>
+                    <div class="member-bio">বড় ভাই</div>
+                </div>
+                <a href="https://www.facebook.com/abdurrazzak010" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 2 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Lutfor.webp" alt="লুৎফর রহমান" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">লুৎফর রহমান</div>
+                    <div class="member-position">পদবী: যুগ্ম সা:সম্পাদক</div>
+                    <div class="member-bio">বড় ভাই</div>
+                </div>
+                <a href="https://www.facebook.com/mdlutfor.rehman.9" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 3 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Sujon (1).webp" alt="রাশেদুল ইসলাম সুজন" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">রাশেদুল ইসলাম সুজন</div>
+                    <div class="member-position">পদবী: সাংগঠনিক সম্পাদক</div>
+                    <div class="member-bio">নানা ভাই</div>
+                </div>
+                <a href="https://www.facebook.com/rashidulislam.sojan" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 4 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Godi-sujon.webp" alt="সুজন আহমেদ" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">সুজন আহমেদ</div>
+                    <div class="member-position">পদবী: যুগ্ম সাধারণ সম্পাদক</div>
+                    <div class="member-bio">বড় ভাই</div>
+                </div>
+                <a href="https://www.facebook.com/sojan.ahamed.96" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 5 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Monir.webp" alt="মনির ইসলাম" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">মনির ইসলাম</div>
+                    <div class="member-position">পদবী: যুগ্ম সাং: সম্পাদক</div>
+                    <div class="member-bio">বড় ভাই</div>
+                </div>
+                <a href="https://www.facebook.com/monir.islam.711878" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 6 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Manik.webp" alt="মানিক মিয়া" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">মানিক মিয়া</div>
+                    <div class="member-position">পদবী: সদস্য</div>
+                    <div class="member-bio">পাইলট ✈️</div>
+                </div>
+                <a href="https://www.facebook.com/durjoy.ahamad.2025" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 7 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Sanuar.webp" alt="ছানোয়ার হোসোন" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">ছানোয়ার হোসোন</div>
+                    <div class="member-position">পদবী: সদস্য</div>
+                    <div class="member-bio">দেওয়ান ভাগী</div>
+                </div>
+                <a href="https://www.facebook.com/sanoar.hossen.75758" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 8 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Rajib.webp" alt="রাজিব ইসলাম" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">রাজিব ইসলাম</div>
+                    <div class="member-position">পদবী: সমাজ কল্যাণ বি: সম্পাদক</div>
+                    <div class="member-bio">বড় ভাই</div>
+                </div>
+                <a href="https://www.facebook.com/rajibislam0100" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 9 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Golam-sadek.webp" alt="গোলাম সাদেক" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">গোলাম সাদেক</div>
+                    <div class="member-position">পদবী: সাংস্কৃতিক বি: সম্পাদক</div>
+                    <div class="member-bio">বড় ভাই</div>
+                </div>
+                <a href="https://www.facebook.com/golam.sadek.731" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 10 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Rony.webp" alt="রনি আহম্মেদ" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">রনি আহম্মেদ</div>
+                    <div class="member-position">পদবী: স্বাস্থ্য বিষয়ক সম্পাদক</div>
+                    <div class="member-bio">বড় ভাই</div>
+                </div>
+                <a href="https://www.facebook.com/md.ronyab.7" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 11 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Sahadat.webp" alt="শাহাদৎ হোসাইন" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">শাহাদৎ হোসাইন</div>
+                    <div class="member-position">পদবী: প্রচার সম্পাদক</div>
+                    <div class="member-bio">শিক্ষক ও কনটেন্ট ক্রিয়েটর</div>
+                </div>
+                <a href="https://www.facebook.com/shahadat010" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 12 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Farid.webp" alt="ফরিদ হাসান" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">ফরিদ হাসান</div>
+                    <div class="member-position">পদবী: যুগ্ম সাংগঠনিক সম্পাদক</div>
+                    <div class="member-bio">ফসকা 😆</div>
+                </div>
+                <a href="https://www.facebook.com/farid.hasan.98031506" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 13 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/dipu.webp" alt="খালিদ হাসান" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">খালিদ হাসান</div>
+                    <div class="member-position">পদবী: শিক্ষা সম্পাদক</div>
+                    <div class="member-bio">কাজ আমার একটাই, সারাদিন মুভি দেখা 😏</div>
+                </div>
+                <a href="https://www.facebook.com/mdKhalid778" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 14 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Azad.webp" alt="এ.কে আজাদ" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">এ.কে আজাদ</div>
+                    <div class="member-position">পদবী: যুগ্ম সাংগঠনিক সম্পাদক</div>
+                    <div class="member-bio">দুর্বল 😆</div>
+                </div>
+                <a href="https://www.facebook.com/ak.azad.439416" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 15 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Laden.webp" alt="লাদেন আহমেদ" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">লাদেন আহমেদ</div>
+                    <div class="member-position">পদবী: ধর্ম বিষয়ক সম্পাদক</div>
+                    <div class="member-bio">ইউরোপের ব্লগার 🤳</div>
+                </div>
+                <a href="https://www.facebook.com/prince.ahamed.shikder" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 16 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/sajedul.webp" alt="সাজেদুল ইসলাম" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">সাজেদুল ইসলাম</div>
+                    <div class="member-position">পদবী: যুগ্ম ধর্ম বিষয়ক সম্পাদক</div>
+                    <div class="member-bio">টাকায় ছিনিমিনি করে 🤑</div>
+                </div>
+                <a href="https://www.facebook.com/profile.php?id=100081147715495" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 17 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Shakib.webp" alt="শাকিব মিয়া" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">শাকিব মিয়া</div>
+                    <div class="member-position">পদবী: যুগ্ম স্বাস্থ্য বিষয়ক সম্পাদক</div>
+                    <div class="member-bio">একজন সফল টিকটকার 🤗</div>
+                </div>
+                <a href="https://www.facebook.com/sk.shakib.hasan.501942" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 18 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Jahangir.webp" alt="জাহাঙ্গীর আলম" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">জাহাঙ্গীর আলম</div>
+                    <div class="member-position">পদবী: যুগ্ম সমাজ কল্যাণ বি সম্পাদক</div>
+                    <div class="member-bio">সুন্দরী 🤩</div>
+                </div>
+                <a href="https://www.facebook.com/ahmed.jahangir.757373" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 19 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Asif.webp" alt="আসিফ মিয়া" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">আসিফ মিয়া</div>
+                    <div class="member-position">পদবী: যুগ্ম স্বাস্থ্য বিষয়ক সম্পদক</div>
+                    <div class="member-bio">একটা জিনিসের বিশেষজ্ঞ 🤭</div>
+                </div>
+                <a href="https://www.facebook.com/profile.php?id=100048753515800" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 20 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Sany.webp" alt="সানি মিয়া" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">সানি মিয়া</div>
+                    <div class="member-position">পদবী: যুগ্ম শিক্ষা বি: সম্পাদক</div>
+                    <div class="member-bio">গেমার</div>
+                </div>
+                <a href="https://www.facebook.com/sany.miah.816783" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 21 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Mamun.webp" alt="মামুন আহমেদ" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">মামুন আহমেদ</div>
+                    <div class="member-position">পদবী: ভারপ্রাপ্ত কোষাধক্ষ</div>
+                    <div class="member-bio">ইউটিউবার 🤳</div>
+                </div>
+                <a href="https://www.facebook.com/profile.php?id=100074434867516" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 22 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Neamul.webp" alt="নিয়ামুল হাসান" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">নিয়ামুল হাসান</div>
+                    <div class="member-position">পদবী: ভারপ্রাপ্ত সাধারণ সম্পাদক</div>
+                    <div class="member-bio">বড় ভাই</div>
+                </div>
+                <a href="https://www.facebook.com/profile.php?id=61560263295881" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 23 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Al-amin.webp" alt="আল আমীন" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">আল আমীন</div>
+                    <div class="member-position">পদবী: যুগ্ম শিক্ষা সম্পাদক</div>
+                    <div class="member-bio">সারাদিন ঘরের কোনায় থাকি খালি 🛌</div>
+                </div>
+                <a href="https://www.facebook.com/al.amin.436224" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 24 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Ashik.webp" alt="আশিক মিয়া" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">আশিক মিয়া</div>
+                    <div class="member-position">পদবী: যুগ্ম দপ্তর সম্পাদক</div>
+                    <div class="member-bio">আমি আরো দুর্বল 😆</div>
+                </div>
+                <a href="https://www.facebook.com/txic.ashik.2025" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 25 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/opu.webp" alt="অপু মিয়া" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">অপু মিয়া</div>
+                    <div class="member-position">পদবী: দপ্তর সম্পাদক</div>
+                    <div class="member-bio">এক ছেকায় আমি অপু শেষ 😁</div>
+                </div>
+                <a href="https://www.facebook.com/md.opu.hasan.514201" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 26 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Rafiqul.webp" alt="রফিকুল ইসলাম" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">রফিকুল ইসলাম</div>
+                    <div class="member-position">পদবী: যুগ্ম সাংস্কৃতিক বি: সম্পাদক</div>
+                    <div class="member-bio">এই যে ক্ষেত, ঐ যে বাতা — কী বুঝলা? 🥲</div>
+                </div>
+                <a href="https://www.facebook.com/profile.php?id=61556781009301" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 27 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Israfil.webp" alt="ইসরাফিল" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">ইসরাফিল</div>
+                    <div class="member-position">পদবী: যুগ্ম প্রচার সম্পাদক</div>
+                    <div class="member-bio">খাসতেল-ভক্ত নামে সবাই চিনে 😉</div>
+                </div>
+                <a href="https://www.facebook.com/alex.rocky.12809" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 28 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Anik.webp" alt="অনিক হাসান" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">অনিক হাসান</div>
+                    <div class="member-position">পদবী: যুগ্ম সাংস্কৃতিক বি: সম্পাদক</div>
+                    <div class="member-bio">মাঝে মাঝে পিনিকে থাকি 😇</div>
+                </div>
+                <a href="https://www.facebook.com/anik.hasan.266897" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <!-- Member 29 -->
+            <div class="member-card fade-in">
+                <div class="member-image">
+                    <img data-src="images/Sabbir.webp" alt="সাব্বির ইসলাম" class="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">সাব্বির ইসলাম</div>
+                    <div class="member-position">পদবী: যুগ্ম দপ্তর সম্পাদক</div>
+                    <div class="member-bio">পুরা এলাকা টই টই কইরা ঘুরাই, আমার কাজ 😎</div>
+                </div>
+                <a href="https://www.facebook.com/alex.sabbir.612136" class="member-social">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Products Section -->
+    <div class="products-section fade-in">
+        <h2 class="section-title">আমাদের পণ্য সমূহ</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img data-src="images/Tshirt.webp" alt="পিডিসি টি-শার্ট" class="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">পিডিসি টি-শার্ট</h3>
+                    <p class="product-price">৳ ৩৪০ টাকা</p>
+                    <button class="product-button coming-soon">Buy Now</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img data-src="images/Mug.webp" alt="স্টাইল মগ" class="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">স্টাইল মগ</h3>
+                    <p class="product-price">৳ ৯০ টাকা</p>
+                    <button class="product-button coming-soon">Buy Now</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img data-src="images/Pant.webp" alt="হাফ-প্যান্ট" class="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">প্যান্ট</h3>
+                    <p class="product-price">৳ ২৬০ টাকা</p>
+                    <button class="product-button coming-soon">Buy now</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img data-src="images/cap.webp" alt="হেড ক্যাপ" class="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">ক্যাপ</h3>
+                    <p class="product-price">৳ ২২০ টাকা</p>
+                    <button class="product-button coming-soon">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Location Section with Google Maps -->
+    <div class="location-section fade-in">
+        <h2 class="section-title">আমাদের অবস্থান</h2>
+        <div class="location-container">
+            <div class="map-container">
+                <!-- Google Maps Embed -->
+                <iframe src="https://www.google.com/maps?q=65VX%2B7QC+প্রতিধ্বনি+ক্লাব+ঘেচুয়া+বড়চালা&output=embed" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="address-details">
+                <div class="address-row">
+                    <div class="address-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>ঘেচুয়া, বড়চালা</span>
+                    </div>
+                    <div class="address-item">
+                        <i class="fas fa-city"></i>
+                        <span>সখিপুর, টাঙ্গাইল</span>
+                    </div>
+                </div>
+                <div class="address-row">
+                    <div class="address-item">
+                        <i class="fas fa-phone"></i>
+                        <span>০১৭০০-০০০০০</span>
+                    </div>
+                    <div class="address-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>protidhoniclub1@gmail.com</span>
+                    </div>
+                </div>
+                <div class="address-row">
+                    <div class="address-item">
+                        <i class="fas fa-clock"></i>
+                        <span>সপ্তাহের প্রতিদিন: সকাল ৯টা - রাত ৯টা</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Social Media Section -->
+    <div class="social-section fade-in">
+        <h3 class="social-title">আমাদের সাথে সংযুক্ত থাকুন</h3>
+        <p class="social-subtitle">আমাদের সর্বশেষ কার্যক্রম, ইভেন্ট এবং পণ্য সম্পর্কে জানতে আমাদের ফেসবুক পেজে ফলো করুন</p>
+        
+        <a href="https://www.facebook.com/profile.php?id=61577713829355" class="social-button">
+            <i class="fab fa-facebook"></i> ফেসবুক পেজে যান
+        </a>
+    </div>
+    
+    <!-- Developer Section -->
+    <div class="developer-section fade-in">
+        <div class="developer-card">
+            <div class="developer-image">
+                <img data-src="images/Neamul.webp" alt="Developer Image" class="lazy">
+            </div>
+            <div class="developer-content">
+                <h3 class="developer-name">নিয়ামুল হাসান</h3>
+                <p class="developer-text">ওয়েব ডেভেলপার ও ডিজাইনার হিসেবে আমি একদমই নতুন।তাও আমি যেটুকু পারি সেইটুকু দিয়ে প্রতিধ্বনি ক্লাবের জন্য এই ওয়েবসাইটটি ডিজাইন এবং ডেভেলপ করেছি।</p>
+                
+                <p class="developer-quote">"প্রযুক্তির মাধ্যমে সামাজিক পরিবর্তন আনাই আমার লক্ষ্য। প্রতিটি প্রকল্পে আমি আমার সৃজনশীলতা এবং দক্ষতা কাজে লাগিয়ে একটি অর্থপূর্ণ প্রভাব তৈরি করার চেষ্টা করি।"</p>
+                
+                <div class="hire-button-container">
+                    <a href="https://www.facebook.com/profile.php?id=61560263295881" class="hire-button">
+                        <i class="fas fa-briefcase"></i> Hire Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="fade-in">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-hands-helping"></i>
+            </div>
+            <h3 class="club-name" style="color: white;">প্রতিধ্বনি ক্লাব</h3>
+            <p class="club-address" style="color: rgba(255,255,255,0.8); margin-bottom: 20px;">ঘেচুয়া, বড়চালা, সখিপুর, টাঙ্গাইল</p>
+            
+            <p class="club-motto">"মানুষ মানুষের জন্য, জীবন জীবনের জন্য"</p>
+        </div>
+        
+        <p class="copyright">কপিরাইট © ২০২৫ প্রতিধ্বনি ক্লাব। সর্বস্বত্ব সংরক্ষিত।</p>
+        <p class="developer">Devoloped by <a href="https://www.facebook.com/profile.php?id=61560263295881">Neamul Hasan</a></p>
+    </footer>
+    
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 class="modal-title">পণ্য এখনো প্রস্তুত হয়নি</h3>
+            <p class="modal-text">দুঃখিত, এই পণ্য এখনো তৈরি হয়নি। বিস্তারিত জানতে নিচের বাটনে ক্লিক করুন।</p>
+            <a href="https://www.facebook.com/profile.php?id=61577713829355" class="modal-button">বিস্তারিত জানুন</a>
+        </div>
+    </div>
+    
+    <script>
+        // Image Slider Functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        const totalSlides = slides.length;
+        
+        function showSlide(index) {
+            document.querySelector('.slider').style.transform = `translateX(-${index * 100}%)`;
+            
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+            
+            currentSlide = index;
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+        
+        // Initialize dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showSlide(index));
+        });
+        
+        // Auto slide
+        setInterval(nextSlide, 3000);
+        
+        // Scroll to top button
+        const scrollBtn = document.querySelector('.scroll-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add('show');
+            } else {
+                scrollBtn.classList.remove('show');
+            }
+        });
+        
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Header scroll behavior - only show at top
+        const header = document.getElementById('mainHeader');
+        let lastScrollTop = 0;
+        
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop === 0) {
+                // At top - show header
+                header.classList.remove('header-hidden');
+            } else if (scrollTop > 100) {
+                // Scrolled down - hide header
+                header.classList.add('header-hidden');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+        
+        // Product Modal Functionality
+        const modal = document.getElementById("productModal");
+        const comingSoonButtons = document.querySelectorAll(".coming-soon");
+        const closeBtn = document.querySelector(".close-btn");
+        
+        // Open modal when Coming Soon button is clicked
+        comingSoonButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                modal.style.display = "flex";
+            });
+        });
+        
+        // Close modal when close button is clicked
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = "none";
+        });
+        
+        // Close modal when clicking outside of it
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+        
+        // Reorder members based on position
+        document.addEventListener('DOMContentLoaded', function() {
+            const membersGrid = document.querySelector('.members-grid');
+            const memberCards = Array.from(membersGrid.children);
+            
+            // Create an array of positions in hierarchical order
+            const positionOrder = [
+                "সহ সভাপতি",
+                "যুগ্ম সা:সম্পাদক",
+                "সাংগঠনিক সম্পাদক",
+                "যুগ্ম সাধারণ সম্পাদক",
+                "যুগ্ম সাং: সম্পাদক",
+                "সদস্য",
+                "সমাজ কল্যাণ বি: সম্পাদক",
+                "সাংস্কৃতিক বি: সম্পাদক",
+                "স্বাস্থ্য বিষয়ক সম্পাদক",
+                "প্রচার সম্পাদক",
+                "যুগ্ম সাংগঠনিক সম্পাদক",
+                "শিক্ষা সম্পাদক",
+                "ধর্ম বিষয়ক সম্পাদক",
+                "যুগ্ম ধর্ম বিষয়ক সম্পাদক",
+                "যুগ্ম স্বাস্থ্য বিষয়ক সম্পাদক",
+                "যুগ্ম সমাজ কল্যাণ বি সম্পাদক",
+                "যুগ্ম শিক্ষা বি: সম্পাদক",
+                "ভারপ্রাপ্ত কোষাধক্ষ",
+                "ভারপ্রাপ্ত সাধারণ সম্পাদক",
+                "যুগ্ম শিক্ষা সম্পাদক",
+                "যুগ্ম দপ্তর সম্পাদক",
+                "দপ্তর সম্পাদক",
+                "যুগ্ম সাংস্কৃতিক বি: সম্পাদক",
+                "যুগ্ম প্রচার সম্পাদক",
+                "যুগ্ম দপ্তর সম্পাদক"
+            ];
+            
+            // Sort member cards based on position order
+            memberCards.sort((a, b) => {
+                const positionA = a.querySelector('.member-position').textContent.split(': ')[1];
+                const positionB = b.querySelector('.member-position').textContent.split(': ')[1];
+                
+                const indexA = positionOrder.indexOf(positionA);
+                const indexB = positionOrder.indexOf(positionB);
+                
+                return indexA - indexB;
+            });
+            
+            // Clear the grid and append sorted cards
+            membersGrid.innerHTML = '';
+            memberCards.forEach(card => membersGrid.appendChild(card));
+        });
+        
+        // Lazy Loading for Images
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyImages = document.querySelectorAll('img.lazy');
+            
+            const lazyLoad = function() {
+                lazyImages.forEach(img => {
+                    if (img.getAttribute('data-src') && img.getBoundingClientRect().top <= window.innerHeight + 100 && img.getBoundingClientRect().bottom >= 0) {
+                        img.src = img.getAttribute('data-src');
+                        img.removeAttribute('data-src');
+                        img.onload = function() {
+                            img.classList.remove('lazy');
+                        };
+                    }
+                });
+            };
+            
+            // Initial load
+            lazyLoad();
+            
+            // Load images on scroll
+            window.addEventListener('scroll', lazyLoad);
+            
+            // Load images on resize
+            window.addEventListener('resize', lazyLoad);
+        });
+function toggleMenu() {
+  document.getElementById('menu').classList.toggle('show');
+  document.getElementById('overlay').classList.toggle('show');
+}
+    </script>
+</body>
+</html>
