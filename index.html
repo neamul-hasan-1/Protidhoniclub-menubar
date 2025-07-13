@@ -129,8 +129,8 @@
   gap: 10px;
   margin: 12px 20px;
   padding: 14px 20px;
-  color: #ffffff;
-  background-color: #2563eb;
+  color: var(--dark);
+  background-color: var(--accent);
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
@@ -141,7 +141,8 @@
 }
 
 .side-menu a:hover {
-  background-color: #1d4ed8;
+  color:white;
+  background-color: green;
   transform: translateY(-2px) scale(1.03);
 }
 
@@ -154,7 +155,7 @@
   top: 15px;
   right: 20px;
   font-size: 22px;
-  color: white;
+  color: red;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -259,12 +260,12 @@
         /* Image Slider */
         .slider-container {
             margin: 25px auto;
-            max-width: 100%;
+            max-width: 95%;
             position: relative;
             overflow: hidden;
-            border-radius: 12px;
+            /*border-radius: 12px;*/
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            height: 250px;
+            height: 210px;
         }
         
         .slider {
@@ -291,7 +292,7 @@
             display: flex;
         }
         
-        .slider-dot {
+        /*.slider-dot {
             width: 12px;
             height: 12px;
             border-radius: 50%;
@@ -303,7 +304,7 @@
         
         .slider-dot.active {
             background-color: white;
-        }
+        }*/
         
         /* Leadership Section */
         .section-title {
@@ -954,6 +955,23 @@
             transform: translateY(-3px);
         }
         
+        /* Product modal এর close button এর জন্য নতুন স্টাইল */
+.product-modal-close-btn {
+    position: absolute;
+    top: 10px; /* উপরের দিক থেকে দূরত্ব */
+    right: 15px; /* ডান দিক থেকে দূরত্ব */
+    font-size: 30px; /* অক্ষরের আকার বড় করা হয়েছে */
+    cursor: pointer;
+    color: #777;
+    transition: all 0.2s ease-in-out;
+}
+
+.product-modal-close-btn:hover {
+    color: #333;
+    transform: scale(1.1); /* হোভার করলে সামান্য বড় হবে */
+}
+
+    
         /* Animations */
         @keyframes marquee {
             0% { transform: translateX(100%); }
@@ -1071,22 +1089,72 @@
 
 <!-- Side Menu -->
 <div id="menu" class="side-menu">
-  <span class="close-btn" onclick="toggleMenu()">✖️</span>
-  <a href="https://your-donation-form-link.com" target="_blank">
+  <span class="close-btn" onclick="toggleMenu()">✖</span>
+  <a href="donate.html" target="_blank">
     <i class="fas fa-donate"></i> ডোনেট করুন
   </a>
-  <a href="https://your-membership-form-link.com" target="_blank">
+  <a href="membership.html" target="_blank">
     <i class="fas fa-user-plus"></i> সদস্য আবেদন করুন
   </a>
 </div>
 
 <!-- Overlay -->
 <div id="overlay" class="overlay" onclick="toggleMenu()"></div>
+<!-- DONATION MODAL -->
+<div id="donationModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal('donationModal')">✖</span>
+    <h2 class="modal-title">ডোনেট ফর্ম</h2>
+    <form id="donateForm">
+      <p>বিকাশ নাম্বার: <strong onclick="copyBikash()" style="cursor:pointer">01610-342145</strong></p>
+      <input type="text" name="name" placeholder="আপনার নাম" required><br><br>
+      <input type="tel" name="phone" placeholder="আপনার মোবাইল নাম্বার" pattern="\\d{11,}" required><br><br>
+      <input type="number" name="amount" placeholder="কত টাকা পাঠিয়েছেন?" required><br><br>
+      <input type="tel" name="sent_from" placeholder="যে নাম্বার থেকে পাঠিয়েছেন" pattern="\\d{11,}" required><br><br>
+      <p>আপনি কি ক্লাবের সদস্য?</p>
+      <label><input type="radio" name="is_member" value="হ্যাঁ" required> হ্যাঁ</label>
+      <label><input type="radio" name="is_member" value="না"> না</label><br><br>
+      <input type="url" name="facebook" placeholder="ফেসবুক লিংক (যদি থাকে)"><br><br>
+      <button type="submit" class="modal-button">সাবমিট করুন</button>
+    </form>
+  </div>
+</div>
+
+<!-- MEMBERSHIP MODAL -->
+<div id="membershipModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal('membershipModal')">✖</span>
+    <h2 class="modal-title">সদস্য আবেদন ফর্ম</h2>
+    <form id="memberForm">
+      <input type="text" name="full_name" placeholder="আপনার পুরো নাম" required><br><br>
+      <input type="number" name="age" placeholder="আপনার বয়স" required><br><br>
+      <input type="tel" name="phone" placeholder="আপনার ফোন নাম্বার" pattern="\\d{11,}" required><br><br>
+      <input type="url" name="facebook" placeholder="আপনার ফেসবুক লিংক" required><br><br>
+      <input type="text" name="district" placeholder="জেলা" required><br><br>
+      <input type="text" name="subdistrict" placeholder="থানা" required><br><br>
+      <input type="text" name="village" placeholder="গ্রাম" required><br><br>
+
+      <p>আপনি কি করেন?</p>
+      <label><input type="radio" name="occupation" value="স্টুডেন্ট" required> স্টুডেন্ট</label>
+      <label><input type="radio" name="occupation" value="চাকরি"> চাকরি</label>
+      <label><input type="radio" name="occupation" value="বেকার"> বেকার</label>
+      <label><input type="radio" name="occupation" value="অন্যান্য"> অন্যান্য</label><br><br>
+
+      <p>আপনি কি আমাদের ক্লাবের সকল নিয়ম-কানুন মেনে চলবেন?</p>
+      <a href="#" target="_blank">(নিয়ম-কানুন পড়ুন)</a><br>
+      <label><input type="radio" name="accept_rules" value="হ্যাঁ" required> হ্যাঁ</label>
+      <label><input type="radio" name="accept_rules" value="না"> না</label><br><br>
+
+      <input type="file" name="photo" accept="image/*" required><br><br>
+      <button type="submit" class="modal-button">সাবমিট করুন</button>
+    </form>
+  </div>
+</div>
     <!-- Notice Section -->
     <div class="notice-section">
         <div class="notice-container">
             <div class="notice-title">জরুরী নোটিশ:</div>
-            <div class="notice-text">আগামী ২৭ জুন, শুক্রবার রাত ৯টায় ক্লাবের সাপ্তাহিক মিটিং অনুষ্ঠিত হবে।</div>
+            <div class="notice-text">আগামী ২৭ জুন, শুক্রবার রাত ৯টায় ক্লাবের সাপ্তাহিক মিটিং অনুষ্ঠিত হবে।উক্ত মিটিংয়ে সকলের উপস্হতি বাধ্যতামূলক</div>
         </div>
     </div>
   
@@ -1824,17 +1892,16 @@
     <div class="scroll-top">
         <i class="fas fa-arrow-up"></i>
     </div>
-    
-    <!-- Product Modal -->
+
+    /*product modal */
     <div id="productModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h3 class="modal-title">পণ্য এখনো প্রস্তুত হয়নি</h3>
-            <p class="modal-text">দুঃখিত, এই পণ্য এখনো তৈরি হয়নি। বিস্তারিত জানতে নিচের বাটনে ক্লিক করুন।</p>
-            <a href="https://www.facebook.com/profile.php?id=61577713829355" class="modal-button">বিস্তারিত জানুন</a>
-        </div>
+    <div class="modal-content">
+        <span class="product-modal-close-btn">×</span> <h3 class="modal-title">পণ্য এখনো প্রস্তুত হয়নি</h3>
+        <p class="modal-text">দুঃখিত, এই পণ্য এখনো তৈরি হয়নি। বিস্তারিত জানতে নিচের বাটনে ক্লিক করুন।</p>
+        <a href="https://www.facebook.com/profile.php?id=61577713829355" class="modal-button">বিস্তারিত জানুন</a>
     </div>
-    
+</div>
+
     <script>
         // Image Slider Functionality
         let currentSlide = 0;
@@ -1917,29 +1984,30 @@
             lastScrollTop = scrollTop;
         });
         
-        // Product Modal Functionality
+               // Product Modal Functionality
         const modal = document.getElementById("productModal");
         const comingSoonButtons = document.querySelectorAll(".coming-soon");
-        const closeBtn = document.querySelector(".close-btn");
-        
+        const productModalCloseBtn = document.querySelector(".product-modal-close-btn"); // নতুন variable এবং selector ব্যবহার করা হয়েছে
+
         // Open modal when Coming Soon button is clicked
         comingSoonButtons.forEach(button => {
             button.addEventListener('click', () => {
                 modal.style.display = "flex";
             });
         });
-        
+
         // Close modal when close button is clicked
-        closeBtn.addEventListener('click', () => {
+        productModalCloseBtn.addEventListener('click', () => { // নতুন variable ব্যবহার করা হয়েছে
             modal.style.display = "none";
         });
-        
+
         // Close modal when clicking outside of it
         window.addEventListener('click', (event) => {
             if (event.target === modal) {
                 modal.style.display = "none";
             }
         });
+
         
         // Reorder members based on position
         document.addEventListener('DOMContentLoaded', function() {
@@ -2016,6 +2084,35 @@
             // Load images on resize
             window.addEventListener('resize', lazyLoad);
         });
+// কপি ফাংশন
+function copyBikash() {
+  navigator.clipboard.writeText("01610-342145").then(() => {
+    alert("নাম্বার কপি হয়েছে: 01610-342145");
+  });
+}
+
+// Modal ওপেন/বন্ধ
+function openModal(modalId) {
+  document.getElementById(modalId).style.display = "flex";
+}
+function closeModal(modalId) {
+  document.getElementById(modalId).style.display = "none";
+}
+
+// ফর্ম সাবমিট হলে Success Message (ডেমো)
+document.getElementById('donateForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert("আপনার ডোনেশন সফলভাবে গ্রহণ করা হয়েছে।");
+  closeModal('donationModal');
+  this.reset();
+});
+
+document.getElementById('memberForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert("সদস্য আবেদন সফলভাবে জমা হয়েছে। আমরা শীঘ্রই যোগাযোগ করবো।");
+  closeModal('membershipModal');
+  this.reset();
+});
 function toggleMenu() {
   document.getElementById('menu').classList.toggle('show');
   document.getElementById('overlay').classList.toggle('show');
@@ -2023,3 +2120,4 @@ function toggleMenu() {
     </script>
 </body>
 </html>
+
